@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id='swapTargetMain'>
+        <div>
+            <a href="index.html" data-bind='click:clickLink'>reload!</a>
+            <button data-bind='click:clickLogout'>
+                logout</button>
+        </div>
+        <label>
+            UserName :
+            <input type="text" data-bind='value:UserName' /></label>
+        <label>
+            Password :
+            <input type="text" data-bind='value:Password' /></label>
+        <button data-bind='click:clickLogin'>
+            Login</button>
+        <a href="createAccount.html" data-bind='click:clickLink'>Create Account</a>
+        <script type="text/javascript">
+
+            $().ready(function () {
+                var vm = new kendo.observable({
+                    UserName: "",
+                    Password: "",
+                    clickLogout: function (e) {
+                        e.preventDefault();
+                        $.radoloCommon.localStorage.removeItem('authtoken');
+                        $.radoloRouter.loadUrl('index.html');
+                    },
+                    clickLink: $.radoloRouter.clickLink,
+                    clickLogin: function (e) {
+                        e.preventDefault();
+
+                        if (!vm.UserName || !vm.Password) {
+                            $.radoloCommon.showError("You must provide a username and a password to create an account");
+                            return;
+                        }
+
+                        $.ajax({
+                            cache: false,
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://penisdev.radolo.com/Penis.svc/Login",
+                            data: kendo.stringify({
+                                UserName: vm.UserName,
+                                Password: vm.Password
+                            })
+                        }).fail($.radoloCommon.showError)
+                        .done(function (results) {
+                            var authToken = results.d;
+                            $.radoloCommon.localStorage.setItem("authtoken", authToken);
+
+                            $.radoloRouter.loadUrl("console.html");
+                        });
+                    }
+                });
+                kendo.bind($($.radoloRouter.defaultSwapTarget), vm);
+            });
+        </script>
+    </div>
+</body>
+</html>

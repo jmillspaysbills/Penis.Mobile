@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <title>Penis Game!</title>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="Kendo/js/jquery.min.js" type="text/javascript"></script>
+    <script src="Kendo/js/kendo.all.min.js" type="text/javascript"></script>
+    <script src="js/Radolo.Common.js/radoloCommon.js" type="text/javascript"></script>
+    <script src="js/Radolo.Common.js/radoloRouter.js" type="text/javascript"></script>
+    <script src="js/Radolo.Common.js/radoloDialog.js" type="text/javascript"></script>
+    <script src="js/Radolo.Common.js/radoloOfflineCache.js" type="text/javascript"></script>
+    <script type="text/javascript" src="PushNotification.js"></script>
+    <script type="text/javascript">        
+        var deviceReadyFired = false;
+        $.radoloRouter.defaultSwapTarget = "#swapTargetMain";
+        var onNotificationGCM = function (e) {
+            switch (e.event) {
+                case 'registered':
+                    if (e.regid.length > 0) {
+
+                        $.ajax({
+                            cache: false,
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://penisdev.radolo.com/Penis.svc/RecordRegistrationToken",
+                            data: kendo.stringify({
+                                AuthToken: authToken,
+                                Platform: 'android',
+                                RegistrationToken: e.regid
+                            })
+                        });
+
+                    }
+                    break;
+
+                case 'message':
+                    // this is the actual push notification. its format depends on the data model from the push server
+                    alert('message = ' + e.message + ' msgcnt = ' + e.msgcnt);
+                    break;
+
+                case 'error':
+                    alert('GCM error = ' + e.msg);
+                    break;
+
+                default:
+                    alert('An unknown GCM event has occurred');
+                    break;
+            }
+        };
+        
+        var onNotificationAPN = function (event) {
+            if (event.alert) {
+                navigator.notification.alert(event.alert);
+            }
+
+            if (event.sound) {
+                var snd = new Media(event.sound);
+                snd.play();
+            }
+
+            if (event.badge) {
+                pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+            }
+        };
+
+    </script>
+</head>
+<body>
+    <div id="swapTargetMain">
+        <div>
+            <h1>
+                Penis Game!!!!!!!!!!!!</h1>
+            <p>
+                Connecting to Device</p>
+            <div id='divStatus'>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $().ready(function () {
+                var divStatus = document.getElementById('divStatus');
+                divStatus.innerText = "getting ready....";
+
+                var app = {
+                    // Application Constructor
+                    initialize: function () {
+                        this.bindEvents();
+                    },
+                    // Bind Event Listeners
+                    //
+                    // Bind any events that are required on startup. Common events are:
+                    // 'load', 'deviceready', 'offline', and 'online'.
+                    bindEvents: function () {
+                        divStatus.innerText = "binding events....";
+
+                        document.addEventListener('deviceready', this.onDeviceReady, false);
+                    },
+                    // deviceready Event Handler
+                    //
+                    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+                    // function, we must explicity call 'app.receivedEvent(...);'
+                    onDeviceReady: function () {
+
+
+                        //we need to note that the deviceReadyFired at some point
+                        //this is global so we can always check
+                        deviceReadyFired = true;
+
+                        divStatus.innerText = "device ready....";
+
+                        var authToken = $.radoloCommon.localStorage.getItem("authtoken");
+
+
+                        if (!authToken) {
+                            $.radoloRouter.loadUrl("login.html");
+                        } else {
+                            $.radoloRouter.loadUrl('console.html');
+                        }
+                    }
+                };
+
+                divStatus.innerText = "initializing....";
+
+                if (deviceReadyFired) {
+                    app.onDeviceReady(); //device ready will only fire once so we need to manually fire it
+                } else {
+                    app.initialize();
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

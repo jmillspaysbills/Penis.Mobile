@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="swapTargetMain">
+        <div>
+            <a href="index.html" data-bind='click:clickLink'>reload!</a>
+            <button data-bind='click:clickLogout'>
+                logout</button>
+        </div>
+        <label>
+            UserName :
+            <input type="text" data-bind='value:UserName' /></label>
+        <label>
+            Password :
+            <input type="text" data-bind='value:Password' /></label>
+        <button data-bind='click:clickCreateAccount'>
+            Create Account</button>
+        <a href="login.html" data-bind='click:clickLink'>Login</a>
+        <script type="text/javascript">
+            $().ready(function () {
+                var vm = new kendo.observable({
+                    UserName: "",
+                    Password: "",
+                    clickLink: $.radoloRouter.clickLink,
+                    clickLogout: function (e) {
+                        e.preventDefault();
+                        $.radoloCommon.localStorage.removeItem('authtoken');
+                        $.radoloRouter.loadUrl('index.html');
+                    },
+                    clickCreateAccount: function (e) {
+                        e.preventDefault();
+
+                        if (!vm.UserName || !vm.Password) {
+                            $.radoloCommon.showError("You must provide a username and a password to create an account");
+                            return;
+                        }
+
+                        $.ajax({
+                            cache: false,
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://penisdev.radolo.com/Penis.svc/CreateAccount",
+                            data: kendo.stringify({
+                                UserName: vm.UserName,
+                                Password: vm.Password
+                            })
+                        })
+                    .fail($.radoloCommon.showError)
+                    .done(function (results) {
+                        var authToken = results.d;
+
+                        $.radoloCommon.localStorage.setItem("authtoken", authToken);
+
+                        $.radoloRouter.loadUrl("console.html");
+                    });
+                    }
+                });
+                kendo.bind($($.radoloRouter.defaultSwapTarget), vm);
+            });
+        </script>
+    </div>
+</body>
+</html>

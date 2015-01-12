@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div id='swapTargetMain'>
+        <div>
+            <a href="index.html" data-bind='click:clickLink'>reload!</a>
+            <button data-bind='click:clickLogout'>
+                logout</button>
+        </div>
+        <div>
+            Whats Up!!!! <span data-bind='text:CurrentUserName'></span>
+        </div>
+        <div>
+            Add A User!
+            <br />
+            <br />
+            <input type="text" data-bind='value:UserName' placeholder='i.e. grippstick' />
+            <button data-bind='click:clickAdd'>
+                +Add</button>
+            <br />
+            <br />
+            Existing Contacts
+            <ul data-role='listview' data-bind='source:dsContacts' data-template="contactTemplate">
+            </ul>
+        </div>
+        <script id="contactTemplate" type="text/x-kendo-template">
+            <li><span data-bind='text:UserName'></span> <button data-bind='click:clickSend'>Send</button> <button data-bind='click:clickDelete'>Delete</button></li>
+        </script>
+        <script type="text/javascript">
+
+            $().ready(function () {
+                var authToken = $.radoloCommon.localStorage.getItem("authtoken");
+                if (!authToken) {
+                    $.radoloRouter.loadUrl("login.html");
+                    return;
+                }
+
+                var vm = new kendo.observable({
+                    CurrentUserName: function () {
+
+                        $.ajax({
+                            cache: false,
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://penisdev.radolo.com/Penis.svc/GetCurrentUserName",
+                            data: kendo.stringify({
+                                AuthToken: authToken
+                            })
+                        })
+                    .fail($.radoloCommon.showError)
+                    .done(function (result) {
+                        vm.set('CurrentUserName', result.d);
+                    });
+
+                        return "";
+                    },
+                    UserName: "",
+                    clickLogout: function (e) {
+                        e.preventDefault();
+                        $.radoloCommon.localStorage.removeItem('authtoken');
+                        $.radoloRouter.loadUrl('index.html');
+                    },
+                    clickLink: $.radoloRouter.clickLink,
+                    dsContacts: new kendo.data.DataSource({
+                        transport: {
+                            read: {
+                                cache: false,
+                                async: true,
+                                type: "POST",
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                url: "http://penisdev.radolo.com/Penis.svc/GetContacts"
+                            },
+                            parameterMap: function (options, action) {
+                                if (action === 'read') {
+                                    return kendo.stringify({ AuthToken: authToken });
+                                }
+                            }
+                        },
+
+                        schema: {
+                            data: "d",
+                            total: 'd.length',
+                            model: { id: "UserName" },
+                            parse: function (results) {
+                                var items = $.map(results.d, function (item, index) {
+                                    return {
+                                        UserName: item
+                                    };
+                                });
+
+                                results.d = items;
+
+                                return results;
+                            }
+                        },
+                        pageSize: 10,
+                        serverPaging: true,
+                        serverFiltering: true,
+                        serverSorting: true,
+                        error: $.radoloCommon.showError
+                    }),
+                    clickAdd: function (e) {
+                        e.preventDefault();
+
+                        if (!vm.UserName) {
+                            $.radoloCommon.showError("Please specify a User Name.");
+                            return;
+                        }
+
+                        $.ajax({
+                            cache: false,
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://penisdev.radolo.com/Penis.svc/AddContact",
+                            data: kendo.stringify({
+                                AuthToken: authToken,
+                                UserName: vm.UserName
+                            })
+                        })
+                    .fail($.radoloCommon.showError)
+                    .done(function (results) {
+                        vm.dsContacts.add({ UserName: vm.UserName });
+                        vm.set('UserName', "");
+                    });
+                    },
+                    clickDelete: function (e) {
+                        e.preventDefault();
+
+                        var item = e.data;
+
+                        $.ajax({
+                            cache: false,
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://penisdev.radolo.com/Penis.svc/DeleteContact",
+                            data: kendo.stringify({
+                                AuthToken: authToken,
+                                UserName: item.UserName
+                            })
+                        })
+                    .fail($.radoloCommon.showError)
+                    .done(function (results) {
+                        vm.dsContacts.remove(item);
+                    });
+                    },
+                    clickSend: function (e) {
+                        e.preventDefault();
+                        var item = e.data;
+
+                        $.ajax({
+                            cache: false,
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://penisdev.radolo.com/Penis.svc/SendMessage",
+                            data: kendo.stringify({
+                                AuthToken: authToken,
+                                TargetUserName: item.UserName
+                            })
+                        })
+                    .fail($.radoloCommon.showError)
+                    .done(function (results) {
+                        alert('sent');
+                    });
+                    },
+                    tokenHandler: function (token) {
+                        $.ajax({
+                            cache: false,
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            url: "http://penisdev.radolo.com/Penis.svc/RecordRegistrationToken",
+                            data: kendo.stringify({
+                                AuthToken: authToken,
+                                Platform: 'ios',
+                                RegistrationToken: token
+                            })
+                        });
+                    },
+                    successHandler: function () {
+                        //do nothing for now
+                    },
+                    errorHandler: function () {
+                        alert('error Registering your device with a mobile service');
+                    }
+                });
+
+
+                kendo.bind($($.radoloRouter.defaultSwapTarget), vm);
+
+
+                //lets go ahead and register int he background while we are here
+                var pushNotification = window.plugins.pushNotification;
+
+                // TODO: Enter your own GCM Sender ID in the register call for Android
+                if (device.platform == 'android' || device.platform == 'Android') {
+
+                    //pushNotification.register(vm.successHandler, vm.errorHandler, { "senderID": "270771275650", "ecb": "onNotificationGCM" }); //grippo
+                    pushNotification.register(vm.successHandler, vm.errorHandler, { "senderID": "659681850271", "ecb": "onNotificationGCM" }); //spencer
+
+                }
+                else {
+
+
+                    pushNotification.register(vm.tokenHandler, vm.errorHandler, { "badge": "true", "sound": "true", "alert": "true", "ecb": "onNotificationAPN" });
+
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
