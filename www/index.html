@@ -20,6 +20,7 @@
         var deviceReadyFired = false;
         $.radoloRouter.defaultSwapTarget = "#swapTargetMain";
         var onNotificationGCM = function (e) {
+            var authToken = $.radoloCommon.localStorage.getItem("authtoken");
             switch (e.event) {
                 case 'registered':
                     if (e.regid.length > 0) {
