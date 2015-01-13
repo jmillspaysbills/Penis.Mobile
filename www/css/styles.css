@@ -1,0 +1,1844 @@
+/* --------------------------------------------------------------------- */
+/* ----- Transitions ----- */
+/* --------------------------------------------------------------------- */
+a, button, input, .preLoad, mainContent, .k-tool-icon, .notesWrapper, .k-link, .k-button, .k-input , .k-editor-button, .k-progress, .radoloInput, i,  .comments , .textarea, textarea, .k-item, .k-editor .k-tool  {
+	-webkit-transition: all linear 0.2s;
+	-moz-transition: all linear 0.2s;
+	-o-transition: all linear 0.2s;
+	transition: all linear 0.2s;
+}
+
+.contactInfoEdit .radoloInput {
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
+
+.contactInfoEdit .radoloInput, .button.no-style, button.no-style, .no-style, .k-state-focused, .k-list>.k-state-focused, .k-listview>.k-state-focused, .k-grid-header th.k-state-focused, td.k-state-focused, .k-button:focus:not(.k-state-disabled):not([disabled]), .k-button.k-state-focused, .k-autocomplete.k-state-border-down, .k-autocomplete.k-state-default, .k-picker-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-dropdown-wrap.k-state-default, .label div.radio, .contactInfoEdit .editConfirm   {
+	-moz-box-shadow:none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+/* --------------------------------------------------------------------- */
+/* ----- No Border Radius ----- */
+/* --------------------------------------------------------------------- */
+
+.searchBox .label span.k-header.k-dropdown, li.km-actionsheet-title, .km-popup .k-item, .km-actionsheet>li>a, .k-popup .k-list .k-item, .km-actionsheet, .km-popup .k-list-container, .contactInfoEdit .radoloInput, .button.no-style, button.no-style, .no-style, .k-autocomplete.k-state-default, .k-picker-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-dropdown-wrap.k-state-default   {
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+/* --------------------------------------------------------------------- */
+/* ----- Add Box Sizing ----- */
+/* --------------------------------------------------------------------- */
+.half, .form .item input[type="text"], .radoloInput, .pageHeader .k-menu .k-item.half, .k-link, .form .item input[type="password"], .form .item input[type="email"], .k-menu .k-item .k-link, .header .k-menu .k-item, .header .k-menu .k-item .k-textbox > input, .k-autocomplete .k-input, .k-multiselect-wrap, div.k-window, .k-animation-container, .k-widget, .k-widget *, .k-animation-container *:after, .k-widget *:before, .k-animation-container *,  body.ios7, body.ios7 #drawer {
+	-o-box-sizing: border-box;
+	-icab-box-sizing: border-box;
+	-khtml-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.addClass, .spinner-css .side > .fill, .spinner-css:after, li.km-actionsheet-title {
+	-o-box-sizing: content-box;
+	-icab-box-sizing: content-box;
+	-khtml-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* --------------------------------------------------------------------- */
+/* ----- Clear After ----- */
+/* --------------------------------------------------------------------- */
+
+ul.form li.item:after, .contactInfoEdit li:after, .r-button-container:after, .r-pager-container:after {
+	display: block;
+	clear: both;
+	content:"";
+}
+
+/* --------------------------------------------------------------------- */
+/* ----- General Stuff ----- */
+/* --------------------------------------------------------------------- */
+
+body {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    color: #585859;
+    padding: 1.6rem;
+}
+h4 {
+	font-size: 2.3rem;
+	font-weight: 300;
+	font-style: italic;
+	margin-bottom: .66em;
+}
+
+h5 {
+	font-size: 2.16rem;
+	line-height: 1.1em;
+	font-weight: 400;
+	font-family: "Open Sans";
+	margin-bottom: 2.16rem;
+}
+
+
+/*progress containers will contain the loading gif and the need to be relative so it does not cover the entire page*/
+.progressContainer
+{
+	position:relative;
+}
+
+.progressContainer {
+/*
+	-webkit-transition:all .25s linear;
+	-moz-transition:all .25s linear;
+	-o-transition:all .25s linear;
+	transition:all .25s linear;
+    transition-delay: 0.1s, 0.1s, 0.1s;
+*/
+	width: 100% !important;
+    min-width:  100% !important;
+}
+
+
+.radoloLeaving {
+	position: absolute;
+	top:0; left: 0;
+	z-index: 0;
+}
+.radoloEntering {
+	position: relative;
+	z-index: 100;
+}
+
+.radoloEntering, .radoloLeaving {
+	-webkit-transition: all linear .25s;
+	-moz-transition: all linear .25s;
+	-o-transition: all linear .25s;
+	transition: all linear .25s;
+	opacity: 1;
+
+}
+
+.radoloEntering.radoloBackward, .radoloLeaving.radoloForward {
+	-webkit-transform: translateX(-100%) ;
+	-ms-transform: translateX(-100%) ;
+	transform: translateX(-100%) ;
+	/*opacity: 0;
+	-webkit-transform: translateX(0) ;
+	-ms-transform: translateX(0) ;
+	transform: translateX(0) ;*/
+}
+
+.radoloEntering.radoloForward, .radoloLeaving.radoloBackward  {
+	-webkit-transform: translateX(100%) ;
+	-ms-transform: translateX(100%) ;
+	transform: translateX(100%) ;
+	/*opacity: 0;
+	-webkit-transform: translateX(0) ;
+	-ms-transform: translateX(0) ;
+	transform: translateX(0) ;*/
+}
+
+
+/* --------------------------------------------------------------------- */
+/* ----- We reset some of the CSS Kendo does, because it's stupid. ----- */
+/* --------------------------------------------------------------------- */
+
+.k-picker-wrap .k-select, .k-numeric-wrap .k-select, .k-dropdown-wrap .k-select {
+	min-height: initial;
+	line-height: 1em;
+}
+.k-widget.k-listview {background: none;}
+.k-autocomplete.k-state-default, .k-picker-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-dropdown-wrap.k-state-default {
+	background-image: none;
+	border: none;
+	background-color: transparent;
+	border-color: transparent;
+	width: 100%;
+	vertical-align: top;
+}
+
+.k-popup .k-list .k-state-hover, .k-popup .k-list .k-state-focused, .k-popup .k-list .k-state-selected {border: none; }
+
+.k-list .k-state-hover, .k-list .k-state-focused, .k-list .k-state-highlight, .k-list .k-state-selected, .k-dropzone {
+	-moz-border-radius: inherit;
+	-webkit-border-radius: inherit;
+	border-radius: inherit;
+}
+
+.k-popup .k-list .k-state-selected {
+	background: rgba(0,0,0,.025);
+	color: inherit;
+}
+.k-popup .k-list .k-state-focused, .k-popup .k-list .k-state-hover {
+	background: #41608A;
+	color: #ffffff;
+	border-bottom-color: rgba(153,153,153,0.7);
+}
+
+/* Using our custom Font Icons instead of Kendo's, ecause they will be pixelated on high density displays */
+
+.k-icon.k-i-close.k-cancel, .k-icon.k-i-close {
+	line-height: 1em;
+	height: auto;
+}
+
+.k-i-clock,
+.k-i-seek-w,
+.k-i-arrow-w,
+.k-i-arrow-e,
+.k-i-seek-e,
+.k-warning,
+.k-i-arrow-s,
+.k-i-arrow-n,
+.k-i-close,
+.k-i-calendar,
+.radoloLoading span.image,
+.contactAddress div.checker span,
+.manageItems td div.checker span,
+.k-button-icontext.k-grid-delete,
+.viewContact .k-link.k-header div.checker span,
+.dontforget .radoloToolTipContent:before,
+ul.rocks li:before,
+.k-tool-icon {
+	display: inline-block;
+	line-height: 1em;
+	vertical-align: middle;
+	background-image: none !important;
+	background-position: 0% 0%;
+	margin-top: 0;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: inherit;
+	-webkit-font-smoothing: antialiased;
+	font-size: inherit;
+	opacity: 1;
+	width: auto;
+	text-indent: -999.9rem;
+}
+
+.k-i-clock:before,
+.k-i-seek-w:before,
+.k-i-arrow-w:before,
+.k-i-arrow-e:before,
+.k-i-seek-e:before,
+.k-warning:before,
+.k-i-arrow-s:before,
+.k-i-arrow-n:before,
+.k-i-close:before,
+.k-i-calendar:before,
+.radoloLoading span.image:before,
+.k-button-icontext.k-grid-delete:before,
+.k-tool-icon:before,
+ul.rocks li:before,
+div.checker span {
+	display: inline-block;
+	float: left;
+	text-indent: 0;
+	text-align:center;
+}
+
+/* replace k-icon wtih BA Back Office icons */
+.k-icon.k-i-clock,
+.k-icon.k-i-seek-w,
+.k-icon.k-i-arrow-w,
+.k-icon.k-i-arrow-e,
+.k-icon.k-i-seek-e,
+.k-icon.k-warning,
+.k-icon.k-i-arrow-s,
+.k-icon.k-i-arrow-n,
+.k-icon.k-i-close,
+.k-icon.k-i-calendar,
+.radoloLoading span.image,
+.contactAddress div.checker span,
+.manageItems td div.checker span,
+.k-button-icontext.k-grid-delete,
+.k-tool-icon,
+ul.rocks li:before {font-family: asae}
+
+.k-icon.k-warning:before,
+.k-button-icontext.k-grid-delete:before {
+	text-decoration: inherit;
+	display: inline-block;
+	speak: none;
+}
+
+.k-icon.k-i-clock:before {content:"\e07c"}
+.k-icon.k-i-seek-w:before {content: "\e05d"}
+.k-icon.k-i-arrow-w:before {content: "\e05e"}
+.k-icon.k-i-arrow-e:before {content: "\e04d"}
+.k-icon.k-i-seek-e:before {content: "\e04c"}
+.k-icon.k-warning:before {content: "\e657";}
+.k-icon.k-i-arrow-s:before {content: "\e039";}
+.k-icon.k-i-arrow-n:before {content: "\e03b"}
+.k-icon.k-i-close:before {content:"\e62c"}
+.k-icon.k-i-calendar:before {content: "\e06b"}
+.radoloLoading span.image:before {content: "\e607" }
+.k-button-icontext.k-grid-delete:before {content:"\e044"; font-size: 1.6rem}
+.k-tool-icon.k-bold:before {content: "\e652";}
+.k-tool-icon.k-italic:before {content: "\e669";}
+.k-tool-icon.k-underline:before {content: "\e666"; }
+.k-tool-icon.k-insertUnorderedList:before {content: "\e63b";}
+.k-tool-icon.k-insertOrderedList:before {content: "\e63c";}
+
+.k-window-titlebar .k-window-actions {
+	padding-top: 0;
+	padding-right: .2em;
+	width: 5.0rem;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	right: 0;
+}
+.k-calendar .k-link.k-state-hover, .k-window-titlebar .k-link,   .k-window-titlebar .k-link.k-state-hover {
+	width: auto;
+	line-height: 1em;
+	height: auto;
+	padding: 0;
+	vertical-align: baseline;
+	border: none;
+	background: none;
+	opacity: 1;
+}
+
+.k-loading-mask, .k-loading-image, .k-loading-text {
+	position: absolute;
+	opacity: .7;
+	z-index: 90;
+	overflow: hidden;
+	min-height: 7.5rem;
+	background-color: transparent;
+}
+
+.k-loading-image { background-image: url(/images/loading.GIF); }
+
+.k-loading-color {
+	filter: alpha(opacity=100);
+	opacity: 1;
+	background-color: #F1F1F1;
+}
+.mainContent {padding:8.3rem 2rem 2rem;}
+
+h1#branding {
+	background: url(../images/logo.png) no-repeat center center;
+	background-size: contain;
+	text-indent: -999.9rem;
+    height: 9.3rem;
+    margin-bottom: 3.1rem;
+}
+
+footer a.footerLogo {
+	background: url(../images/radolo_footer.png) no-repeat center center;
+	text-indent: -999.9rem;
+	display: block;
+    height: 2.7rem;
+}
+
+/* ------------------------------------- */
+/* ----- page preloader ----- */
+/* ------------------------------------- */
+
+.preLoad {
+	opacity: 1;
+	visibility: visible;
+	width: 100%;
+	height: 100%;
+	background: rgba(28, 61, 111, 1);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999999;
+}
+
+.preLoad div.position {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -3.6rem;
+	margin-left: -3.6rem;
+	width:7.2rem;
+	height:7.2rem;
+}
+
+.waitContainer {
+	background: rgba(97, 97, 97, 0.7);
+	position: relative;
+	top: -2rem;
+	display: none;
+}
+
+.radoloLoading {
+	width: 21rem;
+	padding: 0;
+	margin: 0 auto;
+	overflow: hidden;
+	color: #ffffff;
+	font-family: thin;
+	font-size: 1.8rem;
+	height: 5rem;
+	line-height: 5rem;
+	text-align: center;
+}
+
+.radoloLoading span.image {
+	margin-right: .8rem;
+	-moz-animation: spin 2s infinite linear;
+	-o-animation: spin 2s infinite linear;
+	-webkit-animation: spin 2s infinite linear;
+	animation: spin 2s infinite linear;
+}
+
+/* ------------------------------------- */
+/* ----- General Form stuff ----- */
+/* ------------------------------------- */
+
+span.reqtxt {
+	display: block;
+	font-size: 1.3rem;
+	text-transform: initial;
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1em;
+	color: #D86161;
+	display: none;
+}
+ul.form li.item {
+	margin-bottom:1rem;
+	list-style: none;
+}
+
+ul.form li.item.submit {padding-top:1rem; margin-bottom: 2rem;}
+
+.label.long {font-family: "Open Sans", Arial, Helvetica, sans-serif; font-size: 1.8rem; font-weight: 200}
+input[disabled], .button:disabled {opacity: .5; cursor: not-allowed;}
+input[type="text"], input[type="password"], .radoloInput {
+	width: 100%;
+	font-weight: 400;
+	border: .2rem solid gainsboro;
+	color: #575757;
+	font-family:  "Open Sans", Arial, Helvetica, sans-serif;
+	font-size: 2.5rem; 
+	-moz-user-select: text;
+	-webkit-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
+button, input {
+    width: 100%;
+    padding: .8rem;
+    margin: .4rem 0;
+}
+
+.button, .r-page-size-container {
+	position: relative;
+	background: #AAAAAA;
+	font-weight: 400;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	display: block;
+	height: 6rem;
+	line-height: 6rem;
+	border-radius: 6rem;
+	font-size: 2.16rem;
+	color: #ffffff;
+	width: 100%;
+	text-align: center;
+	border: none;
+	-moz-box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	-webkit-box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	cursor: pointer;
+}
+
+.button.dark {background: #606060;}
+.button.light {background: #AAAAAA;}
+.button.orange {background: #E98D23;}
+
+.button.small, .r-page-size-container {
+	height: 4.5rem;
+	line-height: 4.5rem;
+	font-size: 1.5rem;
+}
+.button.small.no-style {
+	line-height: 1.3em;
+}
+
+.button.no-style, button.no-style, .no-style {
+	border: none;
+	background: none;
+	line-height: inherit;
+	color: inherit;
+	width: auto;
+	display: inline-block;
+	height: auto;
+	font-size: initial;
+}
+.button.small.no-style {font-size: 1.5rem;}
+.selectWrap {position: relative;}
+.r-page-size-container {
+	clear: both;
+	margin-top:1rem;
+	margin-bottom: 1.5rem;
+}
+.r-page-size-container select {
+	background: none;
+	border: none;
+	width: 100%;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	height: inherit;
+	position: relative;
+	z-index: 10;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	display: block;
+	padding-left: 1em;
+}
+.r-page-size-container:after {
+	position: absolute;
+	right:1rem;
+	top: 0;
+	height: 100%;
+	width: 3rem;
+	text-align: center;
+	z-index: 1;
+	color: inherit;
+	line-height: inherit;
+	font-size: 125%;
+	font-family: asae;
+	text-indent: 0;
+	content: "\e039";
+}
+
+.r-pager-container:after {
+	height: .1rem;
+}
+
+/* ------------------------------------- */
+/* Page Header */
+/* ------------------------------------- */
+
+body.login .appContent {padding: 1.2em}
+
+.appContent.dailyHuddle { padding-top: 11rem; }
+
+.pageHeader .actionMenu {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.actionMenu div.checker span, .actionMenu div.radio span {
+	background: #ffffff;
+	color: #E78E3F;
+}
+
+.pageHeader .k-menu .k-item {border-top: none;}
+.pageHeader .k-menu .k-item.separator {
+	background: rgba(255,255,255,.2);
+	border: none;
+	color: #FAE8D7;
+}
+.pageHeader .k-menu .k-item.separator + .k-item { border: none; }
+.pageHeader .k-menu .k-item .half.first {border-right: .1rem solid #F8CE69}
+.pageHeader .k-menu .k-item.half {
+	width: 50%;
+	overflow: hidden;
+	float: left;
+}
+
+.pageHeader .k-menu .k-group .k-item.half>.k-link {
+	min-width: 100%;
+	font-size: 1.5rem;
+}
+
+.pageHeader .k-menu .k-animation-container {
+	right:1rem !important;
+	left: auto !important;
+	max-width: 30rem;
+}
+
+h1.branding {
+	background: url(/sales/images/align_logo-2x.png) no-repeat;
+	height: 13.5rem;
+	width: 29rem;
+	max-width: 100%;
+	position: relative;
+	top:1rem;
+	text-indent: -999.9rem;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 2rem;
+	background-size: cover;
+}
+
+.pageHeader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	background: #F89F33;
+	height: 5rem;
+	color: #ffffff;
+}
+
+.pageHeader .k-menu.k-header, .k-menu .k-item, .k-widget.k-menu-horizontal>.k-item {
+	background: none;
+	border: none;
+}
+
+.pageHeader h4 {
+	font-size: 2rem;
+	//font-family: light;
+	font-weight: normal;
+	color: #ffffff;
+	text-align: center;
+	height: 5rem;
+	line-height: 5rem;
+	margin-left: 6rem;
+	margin-right: 6rem;
+	white-space: nowrap;
+}
+
+h4 .date {
+	-moz-border-radius: .5rem;
+	-webkit-border-radius: .5rem;
+	border-radius: .5rem;
+	background: rgba(255,255,255,.2);
+	font-size: 1.4rem;
+	padding: .3rem .8rem;
+	margin-left: .6rem;
+	//font-family: light;
+	font-weight: normal;
+	vertical-align: top;
+}
+.pageHeader .k-icon.k-i-arrow-s { display: none; }
+.pageHeader .k-menu > .k-item > span.k-link i {
+	height: 6.3rem;
+	line-height: 6rem;
+	display: block;
+	width: 6rem;
+	text-align: center;
+	font-size: 2.2rem;
+}
+.pageHeader .k-menu .k-item span.k-link { padding: 0;}
+.pageHeader .k-menu .k-group {
+	background: #41608A;
+	border: none;
+}
+.pageHeader .k-menu .k-item>.k-link { font-size: 1.8rem; }
+
+.k-state-active, .k-state-active:hover, .k-active-filter, .k-tabstrip .k-state-active {
+	background-color: transparent;
+	border-color: transparent;
+	color: inherit;
+}
+
+.pageHeader .k-menu .k-group .k-item>.k-link {
+	padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+	min-width: 24.5rem;
+	//font-family: light;
+	white-space: normal;
+}
+
+.pageHeader .k-menu .k-group .k-item.half.last>.k-link {
+	padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+	text-align: right;
+}
+.pageHeader .k-link label {display: block;}
+
+
+
+/* ------------------------------------- */
+/* ----- header ----- */
+/* ------------------------------------- */
+
+#divNavigation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 6rem;
+	background: #1C3D6F;
+	width: 100%;
+	z-index: 100;
+	-moz-box-shadow: 0 .3rem #0D1E42;
+	-webkit-box-shadow: 0 .3rem #0D1E42;
+	box-shadow: 0 .3rem #0D1E42;
+}
+
+.pageHeader .backBTN i {
+	vertical-align: middle;
+	line-height: 6rem;
+}
+.pageHeader .backBTN {
+	font-size: 1.728rem;
+	line-height: 6rem;
+	height: 6rem;
+	padding: 0 .2rem 0 .4rem;
+	vertical-align:middle;
+}
+
+
+.branding {
+	line-height: 6rem;
+	height: 6rem;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.branding i:before {vertical-align: top;}
+.branding .icon-r-asae-star {color: #E98D23;}
+.branding .icon-r-asae {color: #ffffff}
+
+.branding .icon-r-asae-star, .branding .icon-r-asae {text-decoration: none;
+	line-height: 6rem;
+	height: 6rem;
+	font-size: 3.456rem;
+	vertical-align: middle;
+}
+
+.onlineStatus {
+	position: absolute;
+	top: 0;
+	right: 6rem;
+	height: 6rem;
+	width: 6rem;
+	text-align: center;
+}
+.onlineStatus > div {
+	height: 6rem;
+	width: 6rem;
+}
+.onlineStatus > div i {
+	font-size: 3.3rem;
+	position: absolute;
+	top: .4rem;
+	left: 0;
+	width: 6rem;
+	text-align: center;
+}
+span.status {
+	font-size: 0.95rem;
+	line-height: 1em;
+	display: inline-block;
+	padding-top: 3.8rem;
+	font-weight: 300;
+}
+.onlineStatus .online {
+	color: #425919;
+	background: #98CA3C;
+	-moz-box-shadow: 0 .3rem 0 #425919;
+	-webkit-box-shadow: 0 .3rem 0 #425919;
+	box-shadow: 0 .3rem 0 #425919;
+}
+
+//.online span.status {padding-top: 3.6rem;}
+
+.onlineStatus .offline {
+	background: #EF4136;
+	-moz-box-shadow: 0 .3rem 0 #681D17;
+	-webkit-box-shadow: 0 .3rem 0 #681D17;
+	box-shadow: 0 .3rem 0 #681D17;
+	color: rgba(255,255,255,.8);
+}
+
+.onlineStatus .offline i.icon-r-status-blocked {
+	color: #BE1E2D;
+	z-index: 100;
+}
+
+
+/* ------------------------------------- */
+/* ----- Search Results ----- */
+/* ------------------------------------- */
+
+.searchBox {position: relative;}
+.searchType {
+	position: absolute;
+	top: 0;
+	left: 0;
+	line-height: 5.5rem;
+	font-size: 2.5rem;
+}
+.searchBar {margin-bottom:  1.656rem;}
+.searchBar .label span.k-header.k-dropdown {vertical-align: top}
+.searchBar .label .k-dropdown .k-input {
+	height: 5.5rem;
+	line-height: 5.5rem;
+	width: 5.5rem;
+	text-align: center;
+}
+.searchBox .k-dropdown-wrap .k-select {display: none}
+.icon-r-person:before {content: "\e082";}
+.icon-r-company:before {content: "\e60e";}
+.icon-r-city:before {content: "\e664";}
+
+.radoloInput.search {padding-right: 5.5rem;}
+.radoloInput.searchActive {padding-left: 4.5rem;}
+button.clearBTN {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 2rem;
+	color: #aeaeae;
+	height: 5.5rem;
+	line-height: 5.5rem;
+	width: 5.5rem;
+}
+button.goBTN {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 2rem;
+	color: #aeaeae;
+	height: 5.5rem;
+	line-height: 5.5rem;
+	width: 5.5rem;
+}
+
+.contactCard {
+	-moz-border-radius: 5pt;
+	-webkit-border-radius: 5pt;
+	border-radius: 5pt;
+	position: relative;
+	background: #ffffff;
+	font-weight: 300;
+	-moz-box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	-webkit-box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	list-style: none;
+	clear: both;
+}
+
+.avatar {background-color: #D8D8D8; overflow: hidden;}
+.avatar img {
+	max-width: 100%;
+	min-height: 100%;
+}
+.contactCard .avatar {
+	-moz-border-radius: 5pt 0 0 5pt;
+	-webkit-border-radius: 5pt 0 0 5pt;
+	border-radius: 5pt 0 0 5pt;
+	margin-right:1rem;
+}
+
+.smallList .contactCard {
+	height: 7.5rem;
+	margin-bottom: 1.656rem;
+}
+
+.smallList .avatar {
+	height: auto;
+	width: 7.5rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.smallList .contactInfo {
+	padding-left: 8.5rem;
+	overflow: hidden;
+	display: block;
+	height: 7.5rem;
+	position: relative;
+	-moz-border-radius: .5rem;
+	-webkit-border-radius: .5rem;
+	border-radius: .5rem;
+}
+.smallList .contactInfo > span {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.button.editMenu {
+	font-size: 1.7rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 4rem;
+	width: 2.6rem;
+	color: #EEA95A;
+}
+
+.editConfirm {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255,255,255,.95);
+	z-index: 50;
+	-moz-box-shadow: 0 01rem rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 01rem rgba(0,0,0,.3);
+	box-shadow: 0 01rem rgba(0,0,0,.3);
+	-moz-border-radius: 5pt;
+	-webkit-border-radius: 5pt;
+	border-radius: 5pt;
+	text-align: center;
+	color: #585859;
+	padding-right: 1.6rem;
+}
+.table {display: table; height: 100%; width: 100%;}
+.editConfirm > .table > * {
+	display: table-cell !important;
+	vertical-align: middle;
+	height: 100% !important;
+}
+.editConfirm .table-cell .question {
+	width: 100%;
+	display: block;
+	padding-top: 3rem;
+}
+.editConfirm .table-cell .button.no-style {
+	padding: 2.5rem 0;
+}
+.editConfirm .question {
+	font-size: 1.94rem;
+	font-weight: 300;
+	font-style: italic;
+	min-width: 18.1rem;
+}
+
+.editConfirm .button.no-style {
+ 	width: 19%;
+	min-width: 5rem;
+	max-width: 8rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 2.16rem;
+}
+.contactInfo {
+	overflow: hidden;
+	position: relative;
+}
+.contactInfo > span {
+	display: block;
+	padding-right: 2.5rem;
+	line-height: 1.1em;
+	word-break: break-word;
+	width: 100%;
+	display: block;
+}
+.contactInfo .name {
+	font-size: 1.728rem;
+	color: #0A2D63;
+	padding-top: .4rem;
+}
+.contactInfo .email {
+	font-size: 1.584rem;
+	color: #577398;
+}
+.contactInfo .company {
+	color: #808285;
+	font-size: 1.44rem;
+	padding-top: .2rem;
+}
+
+.contactInfoEdit li.wide span.label {
+	width: 100%;
+	border-bottom: .1rem dotted #E6E7E8;
+	padding-bottom:1rem;
+	margin-bottom:1rem;
+}
+.contactInfoEdit .radoloInput.k-dropdown {width: 100%}
+.contactInfoEdit textarea.radoloInput {
+	height: 11rem;
+	line-height: 1.2em;
+}
+
+/* ------------------------------------- */
+/* ----- Edit User Profile ----- */
+/* ------------------------------------- */
+
+.editHeader .avatar {
+	width: 15.5rem;
+	height: 15.5rem;
+	border: .5rem solid #ffffff;
+	margin: 0 auto;
+	display: block;
+	-moz-box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	-webkit-box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	-moz-border-radius: 15.5rem;
+	-webkit-border-radius: 15.5rem;
+	border-radius: 15.5rem;
+}
+
+.editHeader {
+	background: #E6E7E8;
+	margin: -2rem -2rem 0;
+	padding: 3rem 2rem;
+}
+h2.solid, .k-panelbar>.k-item>.k-link {
+	background: #577398;
+	color: #ffffff;
+	height: 5.976rem;
+	font-weight: 200;
+	margin: 0 -2rem;
+	padding: 0 2rem;
+	font-size: 3.5rem;
+	line-height: 5.876rem;
+}
+.contactInfoEdit, .k-panelbar .k-content {
+	background: #ffffff;
+	margin: 0 -2rem 2rem;
+	padding: 0 2rem 0;
+	-moz-box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	-webkit-box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+	box-shadow: 0 .2rem rgba(35, 31, 32, 0.2);
+}
+.k-panelbar .k-content {margin-bottom: 0}
+.contactInfoEdit li, .contactInfoView li {
+	list-style: none;
+	font-size: 0;
+	padding: 1.5rem 0;
+	border-bottom: .1rem solid #D8D8D8;
+	clear: both;
+	position: relative;
+}
+.contactInfoEdit li:first-child {/*padding-top: 0*/}
+.contactInfoEdit li:last-child {
+	/* border-bottom: none; */
+	/*margin-bottom: 2rem;*/
+}
+a.mapLink {
+	display: block;
+	font-size: 1.4rem;
+	line-height: 1.5em;
+	text-decoration: none;
+	color: #9C9C9C;
+}
+.contactInfoEdit .label, .contactInfoView .label {
+	font-family: "Open Sans";
+	width: 25%;
+	display: inline-block;
+	font-size: 1.75rem;
+	font-weight: 500;
+	color: #8F8F8F;
+	text-transform: uppercase;
+	line-height: 1em;
+}
+.label div.radio {top: .1rem; margin-left: .3rem;}
+.label div.radio span:before {content: "\e66c"; color: #E6E7E8;}
+.label div.radio span.checked:before {color:#EEA95A;}
+.contactInfoEdit .label .k-dropdown .k-input, .searchBar .label .k-dropdown .k-input {color: inherit;}
+
+.contactInfoEdit .radoloInput {
+	width: 75%;
+	font-size: 2.4rem;
+	font-weight: 300;
+	outline-width: .4rem;
+	outline-style: solid;
+	outline-offset: -.5rem;
+	border-width: 0 0 .5rem !important;
+	outline-width: .4rem !important;
+	outline-style: solid !important;
+	border-style: solid;
+	padding: .3em .2em 0 .2em;
+	line-height: 1em;
+	height: initial;
+	background: #ffffff;
+	outline-color: #FFFFFF !important;
+	//margin-bottom:1rem;
+	text-indent: .1rem;
+}
+
+.contactInfoEdit .wide .radoloInput {
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+}
+@media (max-width: 48rem){
+	.contactInfoEdit .radoloInput {
+		width: 73%;
+	}
+}
+
+.contactInfoEdit .radoloInput:focus {outline-offset: -.6rem;border-color: #EB8E00;}
+
+.contactInfoEdit .addy1 {width: 62.09%; margin-right:3.5% }
+.contactInfoEdit .addy2 {width: 34.29%; }
+.contactInfoEdit .city {width: 50.36%; margin-right:3.5% }
+.contactInfoEdit .state {width: 15.884%; margin-right:3.5% }
+.contactInfoEdit .zip {width: 26.534%; }
+
+.contactInfoEdit .countryCode {width: 13.35%; margin-right:3.5%}
+.contactInfoEdit .inputWrapper.countryCode:before {content:"+"}
+.contactInfoEdit .areaCode {width: 18.77%; margin-right:3.5%}
+.contactInfoEdit .inputWrapper.areaCode:before {content:"(";}
+.contactInfoEdit .inputWrapper.areaCode:after {content:")";}
+.contactInfoEdit .phone {width: 33.57%; margin-right:3.5%}
+.contactInfoEdit .extension {width: 23.465%; }
+.contactInfoEdit .inputWrapper.extension:before {content:"x";}
+
+.contactInfoEdit .k-dropdown .k-input{
+
+
+}
+
+
+.contactInfoEdit .k-dropdown-wrap .k-input {
+	padding: .177em 0;
+	color: inherit;
+	padding-right: 1.9em;
+}
+
+.contactInfoEdit .k-dropdown .k-icon.k-i-arrow-s:before {line-height: 2.3rem}
+.contactInfoEdit .label span.k-header.k-dropdown, .searchBox .label span.k-header.k-dropdown {
+	background-color: transparent;
+	width: auto;
+}
+.contactInfoEdit .editConfirm {
+	//height: 32rem;
+	width: 100%;
+}
+.contactInfoEdit .inputWrapper .radoloInput {
+	margin-right: 0 !important;
+	width: 100%;
+}
+.contactInfoEdit .label .radio {margin: 0;}
+.contactInfoEdit .inputWrapper.countryCode .radoloInput,
+.contactInfoEdit .inputWrapper.areaCode .radoloInput,
+.contactInfoEdit .inputWrapper.extension .radoloInput {	padding-left: 1.1rem;	}
+.contactInfoEdit .inputWrapper.areaCode .radoloInput {padding-right: 1.1rem;}
+.wide .button.no-style.small.fr {margin-top:1rem;}
+.contactInfoEdit .inputWrapper {display: inline-block; position: relative;}
+.contactInfoEdit .inputWrapper:before, .contactInfoEdit .inputWrapper:after  {
+	content:"";
+	display: inline-block;
+	font-size: 1.44rem;
+	color: #B5B5B5;
+	position: absolute;
+	height: 4.8rem;
+	line-height: 5rem;
+}
+.contactInfoEdit .inputWrapper:before {padding-left: .1rem; left: 0;}
+.contactInfoEdit .inputWrapper:after {padding-right: .1rem; right: 0;}
+
+.emailWarning {
+	font-size: 1.35rem;
+	font-family: "Open Sans";
+	font-weight: 400;
+	color: #BE1E2D;
+	text-align: center;
+	display: block;
+	line-height: 1.3em;
+	padding-top:1rem;
+}
+
+/* ------------------------------------- */
+/* ----- Faking Select Popup ----- */
+/* ------------------------------------- */
+/*
+.km-popup {
+	left: 0!important;
+	top: 0!important;
+	width: 100%!important;
+	height: 100%!important;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: fixed !important;
+	background: rgba(34, 34, 34, 0.8);
+}
+
+.km-actionsheet, .km-popup .k-list-container {
+	background: #fcfcfc;
+	box-shadow: .2rem .2rem .5rem rgba(102,102,102,0.5);
+	-webkit-box-shadow: .2rem .2rem .5rem rgba(102,102,102,0.5);
+}
+
+.km-actionsheet, .km-popup .k-list-container {
+	position: static;
+	margin-left: 5%;
+	width: 90%;
+	display: inline-block;
+	border: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+.km-popup .k-list-container {
+	position: static !important;
+	margin-left: 10% !important;
+	width: 80%!important;
+	display: inline-block!important;
+	max-height: 80% !important;
+	height: auto!important;
+}
+
+
+.k-animation-container .k-list {
+	overflow-x: hidden !important;
+	overflow-y: auto !important;
+}*/
+body > .k-animation-container .k-popup.k-list-container, .k-popup.k-calendar-container {
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	/*padding: 0rem;
+	border-width: 0;
+	border-style: solid;
+	overflow-x: hidden;
+	overflow-y: auto;
+	bottom: 0;
+	top: auto;
+	vertical-align: middle;
+	padding: .2rem;
+	width: auto !important;*/
+	font-weight: 300 !important;
+}
+
+body > .k-animation-container {
+	max-width: 100%;
+	width: 100% !important;
+	left: 0;
+}
+
+body > .k-animation-container .k-popup.k-group:not([role="menu"]), body > .k-animation-container .k-popup.k-list-container:not([role="menu"]), body > .k-animation-container .k-popup.k-list-container:not([role="menu"]) {
+	width: 98% !important;
+	box-sizing: border-box;
+	padding: 0;
+	left: 1% !important;
+	border: none;
+}
+body > .k-animation-container .k-popup .k-list .k-item {
+	font-size: 2.3rem;
+	line-height: 1.2em;
+	padding: .8rem 2% !important;
+	min-height: initial;
+}
+/*
+.km-root .km-popup .k-list, .km-widget.km-actionsheet {
+	padding: 0;
+	margin: 0;
+}
+
+.km-popup .k-state-hover, .km-popup .k-state-focused, .km-popup .k-state-selected, .km-actionsheet>li>a:focus, .km-actionsheet>li>a:active, select:not([multiple]):focus option, .km-listview-label input[type=radio]:checked:after, .km-badge, .k-slider-selection, .km-touch-scrollbar, .km-state-active, .km-widget .km-state-active, .km-popup .k-state-hover, .km-popup .k-state-focused, .km-popup .k-state-selected, .km-actionsheet>li>a:active, .km-detail.km-state-active, .km-state-active .km-detail, .km-pages .km-current-page, .k-slider .k-draghandle, .k-slider .k-draghandle:hover, .k-slider .k-draghandle:before, .km-switch-on .km-switch-handle, select:not([multiple]):focus option, .km-listview-label input[type=radio]:checked:after  {
+	background: currentcolor;
+}
+
+.k-list, .km-actionsheet, .km-actionsheet-wrapper, .km-actionsheet>li>a:focus, .km-actionsheet>li>a:active, .km-widget .k-state-hover, .km-widget .k-state-focused, .km-widget .k-state-selected, .km-state-active .km-detail, .km-state-active .km-listview-label, .k-dropdown .k-input,  .km-actionsheet>li>a:active, .km-widget .k-state-hover, .km-widget .k-state-focused, .km-widget .k-state-selected, .km-popup>.k-list-container, .km-state-active .km-listview-link, .km-state-active .km-listview-label  {
+	color: inherit;
+}
+
+-light .km-popup .k-item, -light .km-actionsheet>li>a {border-color: rgba(34,34,34,0.2);}
+.km-popup .k-item, .km-actionsheet>li>a {border-color: rgba(255,255,255,0.2);}
+-light .km-popup .k-item, -light .km-actionsheet>li>a {background-color: #e9e9e9;}
+-light .km-popup .k-item, -light .km-actionsheet>li>a, -light select:not([multiple]):focus option {
+	color: #222;
+	background-color: #fcfcfc;
+}
+.km-popup .k-item, .km-actionsheet>li>a, select:not([multiple]):focus option {
+	color: #585859;
+	border-color: rgba(153,153,153,0.7);
+	background-color: #FAFAFA;
+	font-weight: 300;
+}
+li.km-actionsheet-title, .km-popup .k-item, .km-actionsheet>li>a, .k-popup .k-list .k-item {
+	font-size: 2.7rem;
+	font-weight: 300;
+	display: block;
+	line-height: 5rem;
+	border-width: 0 0 .1rem;
+	padding: 0 1em 0 .5em;
+	text-decoration: none;
+	border-style: solid;
+	white-space: nowrap;
+	width: 100% !important;
+}
+.k-popup .k-list .k-item:last-child {border-bottom: none !important;}
+.km-popup:not(.km-pane):before, .km-actionsheet-wrapper:before {
+	content: "\a0";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+	width: 0;
+}
+
+.k-dropdown * {
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+*/
+/* ------------------------------------- */
+/* ----- View Contact ----- */
+/* ------------------------------------- */
+.largeCard .contactCard {
+	min-height: 15.9rem;
+	margin-bottom:  1.656rem;
+}
+
+.largeCard .contactCard .avatar {
+	width: auto;
+	height: 15.9rem;
+	float: left;
+}
+
+.largeCard .contactInfo .name {
+	font-size: 2.5rem;
+	padding-top: 1.5rem;
+}
+
+.largeCard .contactInfo .email {font-size: 1.5rem; padding-top:1rem;}
+.largeCard .contactInfo .company {
+	padding-top: .8rem;
+	padding-bottom: 1.5rem;
+}
+.k-panelbar>.k-item>.k-link.k-state-selected {background-color: #41608A}
+.k-panelbar { Background: transparent;}
+.k-panelbar .k-content {
+	color: #585859;
+}
+
+.k-panelbar .k-header .k-icon {
+	vertical-align: top;
+	height: 5.976rem;
+	top: 0;
+	right: 1.3rem;
+	line-height: 5.976rem;
+	color: rgba(255,255,255,.5);
+}
+
+.contactInfoView li.addressSingle, .contactInfoView li.phoneSingle, .contactCiew li.contactLogSingle, .contactCiew li.orderSingle {
+	color: #333333;
+	font-family: "Open Sans";
+	font-weight: 400;
+}
+.contactInfoView li:last-child {border-bottom: none; }
+.contactInfoView .addressInfo, .contactInfoView .phoneInfo, .contactInfoEdit .readOnlyInfo {
+	width: 75%;
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 2.16rem;
+	line-height: 1.2em;
+}
+.contactInfoView .primary {
+	font-size: 1.29rem;
+	font-weight: 200;
+	font-style: italic;
+	text-transform: lowercase;
+	font-family: "Open Sans";
+	display: block;
+	color: #A7A9AC;
+}
+.contactInfoView .primary .icon-r-star-fill {color: #EEA95A;}
+.contactInfoView .label {vertical-align: middle; padding-top: 0rem;}
+.phoneInfo a {
+	text-decoration: none;
+	color: #333333;
+	font-family: "Open Sans";
+	font-weight: 400;
+	display: block;
+}
+
+.noData {
+	font-weight: 300;
+	font-size: 1.8rem;
+	padding:1rem 0;
+}
+
+.k-panelbar>li.k-item {margin-bottom: 2rem}
+
+/* Contact Logs */
+
+.contactInfoView li.contactLogSingle .description {
+	font-size: 1.65rem;
+	color: #1C3D6F;
+	font-family: "Open Sans";
+	line-height: 1.2em;
+}
+.contactInfoView li.contactLogSingle .lastUpdated {
+	font-size: 1.44rem;
+	font-weight: 300;
+	color: #6D6E71;
+	padding-top: .3rem;
+	line-height: 1.2em;
+}
+a.addContactLog {
+	font-size: 2.3rem;
+	display: inline-block;
+	text-decoration: none;
+	color: #ffffff;
+	height: 5.976rem;
+	line-height: 5.976rem;
+	vertical-align: top;
+	position: absolute;
+	right: 4.5rem;
+	top: 0;
+	padding: 0 1.5rem;
+	z-index: 100;
+}
+a.addContactLog i {vertical-align: middle;}
+
+a.followContactLog {
+	margin:  -1.5rem -2rem;
+	display: block;
+	padding: 1.5rem 2rem;
+	text-decoration: none;
+	color: inherit;
+	padding-right: 4rem !important;
+}
+
+a.followContactLog i.icon-r-follow-link {
+	font-size: 2.2125rem;
+	color: rgba(147, 149, 152, 0.5);
+	position: absolute;
+	top: 2.4rem;
+	right: 0;
+}
+
+/* Order History */
+.header {font-size: 0;}
+.header > span {
+	display: inline-block;
+	font-size: 1.44rem;
+	color: #979797 !important;
+	font-weight: 300;
+	padding:1rem 0;
+	border-bottom: .1rem dotted #B8B8B8;
+}
+
+.contactInfoView li.orderSingle > span {
+	font-size: 1.656rem;
+	display: inline-block;
+	vertical-align: top;
+	line-height: 1.2em;
+}
+
+span.orderDescription {
+	width: 74.9%;
+	color: #333333;
+	font-weight: 300;
+}
+
+span.orderQuantity {
+	font-weight: 300;
+	color: #577398;
+	width: 7.94%;
+	text-align: right;
+}
+
+span.orderPrice {
+	width: 16.6%;
+	text-align: right;
+	font-weight: 500;
+	color: #577398;
+}
+
+span.orderDate {
+	color: #8F8F8F;
+	font-weight: 300;
+	font-style: italic;
+	width: 100%;
+	font-size: 1.44rem !important;
+	padding-top: .3rem;
+}
+
+/* ------------------------------------- */
+/* ----- Add/Edit Contact Log ----- */
+/* ------------------------------------- */
+.contactInfoEdit.contactLog .radoloInput {
+	font-size: 1.8rem;
+	width: 100%;
+	padding: .4em;
+}
+
+.contactInfoEdit.contactLog li:last-child {border-bottom: none;}
+
+.contactLogResults {
+	font-size: 1.656rem;
+	font-weight: 300;
+	line-height: 1.3em;
+}
+.contactLogResults * {word-break: break-word;}
+.contactLogResults img {max-width: 100%}
+.contactLogResults p, .contactLogResults ul, .contactLogResults ol {margin-bottom: 1.25em;}
+.contactLogResults ul, .contactLogResults ol {margin-left: 2.6rem;}
+.contactLogResults li {margin-bottom: .35em}
+.contactLogResults li:last-child {margin-bottom: 0}
+.logDetail .lastUpdated {
+	font-style: italic;
+	color: #A2A2A2;
+	font-size: 1.44rem;
+	font-weight: 300;
+	color: #6D6E71;
+	border-top: .1rem solid #D8D8D8;
+    padding-top: 1.9rem;
+}
+h5.logDescription {
+	border-bottom: .1rem solid;
+    padding-bottom: 2.16rem;
+}
+.contactLogResults hr {
+	margin: 2.3rem 0;
+	clear: both;
+	border: .1rem solid #EB8E00;
+	border-width: 0 0 .1rem;
+}
+
+.contactLogResults a {
+	font-weight: bold;
+	color: #EB8E00;
+	text-decoration: none;
+	border-bottom: .1rem dotted;
+}
+
+@media (max-width: 48rem) {
+	/* ------------------------------------- */
+	/* ----- Media Queries ----- */
+	/* ------------------------------------- */
+	.editHeader {
+		margin: -2rem  -1.5rem 0;
+		padding: 3rem 1.5rem;
+	}
+	.mainContent {
+        padding: 7.3rem 1.5rem 1.5rem;
+	}
+	.contactInfoEdit, .k-panelbar .k-content {
+		margin: 0  -1.5rem 2rem;
+		padding: 0 1.5rem 0;
+	}
+	#divNavigation {height: 5rem}
+	.branding, .pageHeader .backBTN i {
+		line-height: 5rem;
+		height: 5rem;
+	}
+
+	.pageHeader .backBTN {
+        font-size: 1.6rem;
+		line-height: 5rem;
+		height: 5rem;
+	}
+	.pageHeader .k-menu > .k-item > span.k-link i {
+        height: 5.3rem;
+		line-height: 5rem;
+		width: 5rem;
+		font-size: 2rem;
+	}
+	.onlineStatus > div {
+		height: 5rem;
+		width: 5rem;
+	}
+	.onlineStatus {
+		right: 5rem;
+		height: 5rem;
+		width: 5rem;
+	}
+	.onlineStatus > div i {
+		top: .1rem;
+		font-size: 2.8rem;
+		width: 5rem;
+	}
+	span.status {
+        padding-top: 2.9rem;
+	}
+	.radoloInput.search {
+		padding-right: 4rem;
+	}
+	.radoloInput.searchActive {
+        padding-left: 3.5rem;
+	}
+	.searchType {
+		line-height: 5rem;
+        font-size: 1.7rem;
+	}
+	button.clearBTN {
+        font-size: 1.7rem;
+		height: 5rem;
+		line-height: 5rem;
+		width: 5rem;
+	}
+	h4 {font-size: 2rem;}
+	.branding .icon-r-asae-star, .branding .icon-r-asae {
+		font-size: 2.5rem;
+		text-decoration: none;
+		line-height: 5rem;
+		height: 5rem;
+	}
+input[type="text"], input[type="password"], .radoloInput {
+		font-weight: 300;
+		font-size: 2.2rem;
+		height: 5rem;
+		line-height: 5rem;
+	}
+	.button {
+		height: 5rem;
+		line-height: 5rem;
+		border-radius: 5rem;
+		font-size: 2rem;
+	}
+	.button.small.no-style {font-size: 1.3rem;}
+	h2.solid, .k-panelbar>.k-item>.k-link {
+		height: 5.6rem;
+		font-size: 3rem;
+		line-height: 5.6rem;
+		margin: 0  -1.5rem;
+		padding: 0 1.5rem;
+	}
+	.searchBar .label .k-dropdown .k-input {
+		height: 5rem;
+		line-height: 5rem;
+		width: 5rem;
+	}
+	.k-panelbar .k-header .k-icon {
+		height: 5.6rem;
+		line-height: 5.6rem;
+	}
+	a.addContactLog {
+		font-size: 2rem;
+		height: 5.6rem;
+		line-height: 5.6rem;
+		right: 3.8rem;
+	}
+	.contactInfoEdit .label, .contactInfoView .label {width: 27%;font-size: 1.6rem;}
+	.contactInfoEdit .radoloInput {
+		font-size: 2rem;
+	}
+	.contactInfoView .addressInfo, .contactInfoView .phoneInfo, .contactInfoEdit .readOnlyInfo {width: 73%;font-size: 1.8rem;}
+    .contactInfoEdit .k-dropdown .k-icon.k-i-arrow-s:before {line-height: 2.1rem;}
+	.contactInfo > span {padding-right: 2rem;}
+	.largeCard .contactInfo .name {
+		font-size: 2rem;
+		padding-top:1rem;
+	}
+	.button.editMenu {
+		font-size: 1.5rem;
+		height: 3rem;
+		width: 2.2rem;
+	}
+	.largeCard .contactInfo .email {
+		font-size: 1.4rem;
+		padding-top: .6rem;
+	}
+	.largeCard .contactInfo .company {
+		padding-top: .6rem;
+		padding-bottom:1rem;
+		font-size: 1.4rem;
+	}
+	.contactInfoEdit .k-dropdown .k-input {padding-right: 1.25em;}
+	.k-picker-wrap .k-select, .k-numeric-wrap .k-select, .k-dropdown-wrap .k-select {width: 1em}
+
+    .contactInfoEdit .inputWrapper.areaCode .radoloInput {padding-right: .9rem;}
+    .contactInfoEdit .inputWrapper.countryCode .radoloInput, .contactInfoEdit .inputWrapper.areaCode .radoloInput, .contactInfoEdit .inputWrapper.extension .radoloInput {padding-left: .9rem;}
+	.pageHeader .k-menu .k-animation-container {right: .5rem !important;}
+    .editConfirm .question {font-size: 1.8rem;min-width: 14.1rem;}
+	.editConfirm .button.no-style {font-size: 2rem;}
+	li.km-actionsheet-title, .km-popup .k-item, .km-actionsheet>li>a, .k-popup .k-list .k-item {
+		font-size: 2.3rem;
+	}
+	.largeCard .contactCard .avatar {
+		width: 35%;
+		height: auto;
+	}
+	.largeCard .contactCard {
+        min-height: 12.4rem;
+	}
+	.editConfirm .button.no-style {
+		width: 16%;
+	}
+	a.followContactLog {
+		margin:  -1.5rem  -1.5rem;
+		padding: 1.5rem;
+	}
+	.contactInfoView li.orderSingle > span {
+		font-size: 1.5rem;
+	}
+	span.orderDate {font-size: 1.35rem !important}
+	span.orderQuantity {text-align: center;}
+}
+
+/* ------------------------------------- */
+/* ----- CSS Preloader  ----- */
+/* ------------------------------------- */
+
+.loading {
+	position: relative;
+	width:7.2rem;
+	height:7.2rem;
+}
+.outer, .inner, .loading:after {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+.loading:after {
+	content:"";
+	margin: 10%;
+	border-radius: 100%;
+	background: #1F4073;
+}
+.outer, .inner {
+	animation-duration: 4s;
+	-webkit-animation-duration: 4s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+}
+.outer {
+	animation-name: rotate-outer;
+	-webkit-animation-name: rotate-outer;
+}
+.inner {
+	animation-name: rotate-inner;
+	-webkit-animation-name: rotate-inner;
+}
+.outer:before, .inner:before, .outer:after, .inner:after {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	content:" ";
+}
+.outer:before, .inner:before {
+	left: 0;
+	right: 50%;
+	border-radius:7.2rem 0 07.2rem;
+}
+ .outer:after, .inner:after {
+	left: 50%;
+	right: 0;
+	border-radius: 07.2rem7.2rem 0;
+}
+
+.outer:before {
+	background: -webkit-linear-gradient(top, rgba(255, 165, 0, 0.5), rgba(255, 165, 0, 0.2));
+	background: -moz-linear-gradient(top, rgba(255, 165, 0, 0.5), rgba(255, 165, 0, 0.2));
+	background: linear-gradient(to bottom, rgba(255, 165, 0, 0.5), rgba(255, 165, 0, 0.2));
+}
+.outer:after {
+	background: -webkit-linear-gradient(top, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.2));
+	background: -moz-linear-gradient(top, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.2));
+	background: linear-gradient(to bottom, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.2));
+}
+.inner:before {
+	background: -webkit-linear-gradient(top, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.2));
+	background: -moz-linear-gradient(top, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.2));
+	background: linear-gradient(to bottom, rgba(255, 165, 0, 0.2), rgba(255, 165, 0, 0.2));
+
+}
+.inner:after {
+	background: -webkit-linear-gradient(top, rgba(255, 165, 0, 0.5), rgba(255, 165, 0, 0.2));
+	background: -moz-linear-gradient(top, rgba(255, 165, 0, 0.5), rgba(255, 165, 0, 0.2));
+	background: linear-gradient(to bottom, rgba(255, 165, 0, 0.5), rgba(255, 165, 0, 0.2));
+}
+/* Spinning animations */
+ @keyframes rotate-outer {
+	0% {
+		transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(1080deg);
+		-moz-transform: rotate(1080deg);
+		-webkit-transform: rotate(1080deg);
+	}
+}
+@-webkit-keyframes rotate-outer {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(1080deg);
+	}
+}
+@keyframes rotate-inner {
+	0% {
+		transform: rotate(720deg);
+		-moz-transform: rotate(720deg);
+		-webkit-transform: rotate(720deg);
+	}
+	100% {
+		transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+	}
+}
+@-webkit-keyframes rotate-inner {
+	0% {-webkit-transform: rotate(720deg);}
+	100% {-webkit-transform: rotate(0deg);}
+}
+
+
+
+/* ------------------------------------- */
+/* ----- Kendo Window ----- */
+/* ------------------------------------- */
+
+.k-widget.k-window {
+	width: 80% !important;
+	left: 10% !important;
+	border: none;
+	-moz-box-shadow: 0 0 2rem rgba(0,0,0,.5);
+	-webkit-box-shadow: 0 0 2rem rgba(0,0,0,.5);
+	box-shadow: 0 0 2rem rgba(0,0,0,.5);
+}
+
+.k-window-titlebar.k-header {
+	background: #FFFFFF;
+	border-color: #FFFFFF;
+	height: auto;
+	padding: .3em 0;
+	color: #585859;
+	font-size: 2.27rem;
+	font-weight: 300;
+	font-style: italic;
+}
+div.dialogMessage {
+	text-align: center;
+	font-size: 1.5rem;
+	color: #585859;
+}
+.dialogButtons {
+	margin-top: 1.5rem;
+	text-align: center;
+	width: 100%;
+}
+.dialogButtons button.k-button {
+	border: none;
+	background: #ffffff;
+	color: #585859;
+	font-weight: 300;
+	font-family: "Open Sans";
+	text-transform: uppercase;
+	font-size: 2.16rem;
+	padding: .8rem ;
+	margin: 0;
+	width: 33.33%;
+	display: inline-block;
+}
+
+/* ------------------------------------- */
+/* ----- style overrides (KEEP AT THE BOTTOM OF THE PAGE) ----- */
+/* ------------------------------------- */
+
+
+.top, .bottom, .right, .left {position: absolute;}
+.top {top: 0;}
+.left {left: 0;}
+.wide {width: 100% !important;}
+.right {right: 0; text-align: right;}
+.bottom {bottom: 0}
+.fr {float: right !important;}
+.fl {float: left !important;}
+.hide { display: none !important;}
+.center {text-align: center !important;}
+.alignRight {text-align: right !important}
+.lowercase {text-transform: lowercase !important}
+.clearNone {clear: none !important;}
+.clearBoth, .clear {clear: both !important;}
+.clearRight {clear: right !important;}
+.clearLeft {clear: left !important;}
+.half.fr {padding-left: .5em;}
+.half.fl {padding-right: .5em;}
+.half {display: block;width: 50%;}

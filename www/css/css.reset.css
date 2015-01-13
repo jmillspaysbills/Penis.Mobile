@@ -1,0 +1,72 @@
+/* ========================================================================================================== */
+/*  													 													  */
+/* 	CSS Reset 	    		*/
+/*  			 																							  */
+/* ========================================================================================================== */
+
+* {margin: 0px; padding: 0px}
+
+html, body {height: 100%; width: 100%;}
+
+html {font-size: 62.5%;}
+
+body { font-size: 1.4rem; line-height: 1.5em;}
+
+a {outline: none; cursor: pointer}
+
+a:link, a:active, a:visited, a:focus {outline:none;}
+
+ol, ul {}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+}
+blockquote, q {
+  quotes: "" "";
+}
+button::-moz-focus-inner { /* firefox is le stupid */
+    padding: 0;
+	border: 0;
+}
+*:focus {outline:none !important;} /*remove webkit focus outline */
+input {margin:0;} /*remove 2px border across top of input */
+input[type="checkbox"], input[type="radio"] {cursor: pointer;}
+fieldset {border: none; clear: both; margin-bottom: 25px;}
+*, *:before, *:after {
+	-o-box-sizing: border-box;
+	-icab-box-sizing: border-box;
+	-khtml-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* ----- Radolo Hrs ----- */
+
+hr.border.first {padding-top: 3em;}
+hr.border.last {margin-bottom: 3em;}
+hr.border {
+	margin: 0;
+	border-style: dotted;
+	border-width: 0 0 2px;
+	border-color: #EA9233;
+	background: none;
+	height: 2px;
+}
+hr {
+	clear: both;
+	font-size: 1rem;
+}
+hr.blank {
+	padding: 1em 0 0;
+	border: none;
+	background: none;
+}

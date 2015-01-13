@@ -1,0 +1,101 @@
+/* ==========================================================================================================   */
+/*  													 													    */
+/* 	Kendo Reset 	    		                                                                                */
+/*  			 																							    */
+/*  This is where Jeremey takes out all of Kendo's styling, for some reason...                                  */
+/* ==========================================================================================================   */
+
+.k-autocomplete, .k-combobox, .k-datepicker, .k-timepicker, .k-datetimepicker, .k-numerictextbox, .k-dropdown, .k-selectbox { white-space: inherit; }
+.k-popup .k-list .k-item { font-size:inherit; }
+.k-textbox > input, .k-autocomplete .k-input, .k-picker-wrap .k-input, .k-numeric-wrap .k-input, .k-dropdown-wrap .k-input, .k-selectbox .k-input {
+	height: inherit;
+	line-height: inherit;
+	text-indent: inherit;
+}
+.k-dropdown .k-state-hover .k-input, .k-block, .k-widget, .k-dropdown .k-input, tr.k-state-selected td, .k-splitbar-horizontal-hover:hover, .k-splitbar-vertical-hover:hover,  .k-marquee, .k-pager-wrap .k-link:hover, .k-state-hover, .k-state-hover:hover,.k-list > .k-state-hover, .k-list > .k-state-selected, .k-list > .k-state-focused, .k-panelbar > .k-state-selected, .k-panel > .k-state-selected, .k-ghost-splitbar-vertical, .k-ghost-splitbar-horizontal, .k-draghandle.k-state-selected:hover, span.k-textbox,input.k-textbox, textarea.k-textbox, .k-widget .k-dropdown-wrap, span.k-numerictextbox, .k-widget .k-picker-wrap , td input.k-textbox, td input.k-input, td .k-widget .k-dropdown-wrap, td .k-widget .k-picker-wrap, .k-state-hover > .k-link, .k-other-month.k-state-hover .k-link, td .k-autocomplete .k-input, td span.k-numerictextbox, .k-block, .k-popup, .k-content, .k-dropdown .k-input, .k-dropdown-wrap.k-state-hover, .k-list > .k-state-hover, .k-scheduler .k-scheduler-toolbar ul li.k-state-hover, .k-dropdown .k-state-focused, .k-imagebrowser-dropzone {color: inherit;}
+.k-window-titlebar .k-window-action ,.k-window-titlebar .k-window-actions, .k-picker-wrap .k-select, .k-numeric-wrap .k-select, textarea.htmlEditor, .k-dropdown-wrap .k-select, .k-picker-wrap .k-select, .k-window-titlebar .k-state-hover , .k-popup .k-list .k-state-focused, .k-popup .k-list .k-state-selected, .k-calendar .k-content .k-link, .k-block, .k-widget, span.k-textbox,.k-inline-block, .k-textbox > input, input.k-textbox, textarea.k-textbox, .k-widget .k-dropdown-wrap, .k-dropdown-wrap .k-input, .k-numeric-wrap .k-input, span.k-numerictextbox, .k-widget .k-picker-wrap, .k-picker-wrap .k-input, .k-widget.k-autocomplete, .k-autocomplete.k-state-default, .k-block, .k-input, .k-content, .k-header, .k-editable-area, .k-separator, .k-colorpicker .k-i-arrow-s, .k-textbox > input, .k-autocomplete, .k-toolbar, .k-grid-footer, .k-footer-template td, .k-state-default .k-select, .k-grid-header-wrap, .k-grid-header, .k-grid-footer-wrap, .k-pager-wrap, .k-pager-wrap .k-link, .k-pager-refresh, .k-grouping-header, .k-grouping-header .k-group-indicator, .k-panelbar > .k-item > .k-link, .k-panel > .k-item > .k-link, .k-panelbar .k-panel, .k-panelbar .k-content, .k-slider-track, .k-splitbar, .k-dropzone-active, .k-upload-files, .k-tiles, .k-toolbar, .k-dropdown-wrap, .k-tooltip, .k-progress, .k-popup .k-list .k-item, .k-textbox > input, .k-autocomplete .k-input, .k-picker-wrap .k-input, .k-numeric-wrap .k-input, .k-dropdown-wrap .k-input, .k-selectbox .k-input, .k-textbox, .k-autocomplete, .k-dropdown-wrap, .k-picker-wrap, .k-numeric-wrap {padding: 0;}
+.k-popup, .k-menu .k-group, .k-grid .k-filter-options, .k-time-popup, .k-datepicker-calendar, .k-autocomplete.k-state-border-down, .k-autocomplete.k-state-border-up, .k-dropdown-wrap.k-state-active, .k-picker-wrap.k-state-active, .k-multiselect.k-state-focused, .k-imagebrowser .k-image, .k-tooltip, .k-state-focused.k-state-selected, .k-list > .k-state-focused.k-state-selected, .k-listview > .k-state-focused.k-state-selected, td.k-state-focused.k-state-selected, .k-state-focused, .k-list > .k-state-focused, .k-listview > .k-state-focused, .k-grid-header th.k-state-focused, td.k-state-focused {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.k-menu:after, label.k-label.long { width: auto; }
+.k-dropdown-wrap.k-state-hover, .k-dropdown .k-state-hover .k-input, .k-widget.k-autocomplete, .k-autocomplete.k-state-default, .k-block, .k-widget, .k-input,  .k-content, .k-header, .k-editable-area, .k-separator, .k-colorpicker .k-i-arrow-s, .k-textbox > input, .k-autocomplete, .k-toolbar, .k-grid-footer, .k-footer-template td, .k-state-default .k-select, .k-grid-header-wrap, div.k-grid-header, .k-grid-footer-wrap, .k-pager-wrap, .k-pager-wrap .k-link, .k-pager-refresh, .k-grouping-header, .k-grouping-header .k-group-indicator, .k-panelbar > .k-item > .k-link, .k-panel > .k-item > .k-link, .k-panelbar .k-panel, .k-panelbar .k-content, .k-slider-track, .k-splitbar, .k-dropzone-active, .k-upload-files, .k-tiles, .k-toolbar, .k-dropdown-wrap, .k-tooltip, .k-progress, .k-icon , .k-popup .k-list .k-state-hover, .k-popup .k-list .k-state-focused, .k-popup .k-list .k-state-selected, .k-textbox > input, .k-autocomplete .k-input, .k-picker-wrap .k-input, .k-numeric-wrap .k-input, .k-dropdown-wrap .k-input, .k-selectbox .k-input, .k-block, .k-inline-block, .k-textbox > input, .k-picker-wrap .k-input, .k-block, .k-content, .k-header, .k-editable-area, .k-separator, .k-colorpicker .k-i-arrow-s, .k-textbox > input, .k-autocomplete, .k-toolbar, .k-grid-footer, .k-footer-template td, .k-grid-header-wrap, .k-grid-header, .k-grid-footer-wrap, .k-pager-wrap, .k-pager-wrap .k-link, .k-pager-refresh, .k-grouping-header, .k-grouping-header .k-group-indicator, .k-panelbar > .k-item > .k-link, .k-panel > .k-item > .k-link, .k-panelbar .k-panel, .k-panelbar .k-content, .k-slider-track, .k-splitbar, .k-dropzone-active, .k-upload-files, .k-tiles, .k-toolbar, .k-dropdown-wrap, .k-tooltip, .k-progress, .k-autocomplete.k-state-focused, span.k-dropdown-wrap.k-state-active, span.k-picker-wrap.k-state-active, .k-picker-wrap.k-state-focused, .k-picker-wrap.k-state-focused:hover, span.k-numeric-wrap.k-state-active, .k-numeric-wrap.k-state-focused, .k-numeric-wrap.k-state-focused:hover, .k-list > .k-state-selected, .k-list > .k-state-focused, .k-panelbar > .k-state-selected, .k-panel > .k-state-selected, .k-ghost-splitbar-vertical, .k-ghost-splitbar-horizontal, .k-draghandle.k-state-selected:hover, .k-widget .k-dropdown-wrap:hover, .k-widget .k-combobox:hover, span.k-numerictextbox:hover,span.k-dropdown-wrap:hover, .k-textbox, .k-autocomplete, .k-dropdown-wrap, .k-picker-wrap, .k-numeric-wrap    {
+	border-width: 0;
+	border-style: none;
+	border: none;
+	border-color: transparent;
+}
+
+.k-dropdown-wrap .k-input, .k-numeric-wrap .k-input {text-indent: 0;}
+.k-state-selected.k-state-focused ,.k-dropdown-wrap .k-input, .k-numeric-wrap .k-input , .k-dropdown-wrap.k-state-hover, .k-secondary .k-dropdown-wrap.k-state-focused,
+ .k-numeric-wrap .k-input, .k-widget .k-dropdown-wrap:hover, .k-widget .k-combobox:hover, td input.k-textbox, td input.k-input, input.k-textbox, textarea.k-textbox, .k-widget .k-dropdown-wrap, span.k-numerictextbox, .k-widget .k-picker-wrap, td .k-widget .k-dropdown-wrap, td .k-widget .k-picker-wrap,td .k-autocomplete .k-input, td span.k-numerictextbox, span.k-numerictextbox:hover, span.k-dropdown-wrap:hover, .k-picker-wrap .k-input, .k-numeric-wrap.k-state-default , .k-window-titlebar .k-window-actions, .k-numeric-wrap .k-input:hover, .k-numeric-wrap.k-state-default:hover, .k-window-actions:hover, .k-list > .k-state-selected, .k-list > .k-state-focused, .k-panelbar > .k-state-selected, .k-panel > .k-state-selected, .k-ghost-splitbar-vertical, .k-ghost-splitbar-horizontal,.k-draghandle.k-state-selected:hover, .k-autocomplete.k-state-focused, span.k-dropdown-wrap.k-state-active, span.k-picker-wrap.k-state-active, .k-picker-wrap.k-state-focused, .k-picker-wrap.k-state-focused:hover, span.k-numeric-wrap.k-state-active, .k-numeric-wrap.k-state-focused, .k-numeric-wrap.k-state-focused:hover, .k-widget .k-numeric-wrap, span.k-numeric-wrap.k-state-active, .k-numeric-wrap.k-state-focused, .k-numeric-wrap.k-state-focused:hover , .k-calendar th , tr.k-state-selected, .k-window-titlebar .k-titlebar .k-state-hover, .k-window-titlebar .k-titlebar .k-state-hover:hover, .k-widget.k-autocomplete, .k-autocomplete.k-state-default, span.k-textbox:hover, p.k-textbox:hover {background-color: transparent}
+.k-block, .k-widget, .k-input,  .k-content, .k-header, .k-editable-area, .k-separator, .k-colorpicker .k-i-arrow-s, .k-textbox > input, .k-autocomplete, .k-toolbar, .k-grid-footer, .k-footer-template td, .k-state-default .k-select, .k-grid-header-wrap, .k-grid-header, .k-grid-footer-wrap, .k-pager-wrap, .k-pager-wrap .k-link, .k-pager-refresh, .k-grouping-header, .k-grouping-header .k-group-indicator, .k-panelbar > .k-item > .k-link, .k-panel > .k-item > .k-link, .k-panelbar .k-panel, .k-panelbar .k-content, .k-slider-track, .k-splitbar, .k-dropzone-active, .k-upload-files, .k-tiles, .k-toolbar, .k-dropdown-wrap, .k-tooltip, .k-progress, .k-icon, .k-column-menu .k-sprite, .k-window-titlebar .k-window-action,.k-loading-color {opacity: 1;}
+.k-animation-container .k-list li.k-item::after, .k-listview:after {content:"";}
+input.k-textbox, textarea.k-textbox, .k-textbox > input, .k-autocomplete .k-input, .k-picker-wrap .k-input, .k-numeric-wrap .k-input, .k-dropdown-wrap .k-input, .k-selectbox .k-input, .k-widget .k-dropdown-wrap, span.k-numerictextbox, span.k-textbox, .k-widget .k-picker-wrap {margin: 0;}
+
+.readOnly span.k-textbox {
+	height: auto;
+	white-space: -moz-pre-wrap;
+	white-space: -hp-pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: pre-wrap;
+	white-space: pre-line;
+	word-wrap: break-word;
+	-moz-binding: url('xbl.xml#wordwrap');
+}
+
+span.k-textbox.long {
+	height: auto;
+	overflow: visible;
+	line-height: 1.3em;
+	height: auto;
+}	
+
+:root *>.k-icon, :root *>.k-sprite, :root *>.k-button-group .k-tool-icon {
+	vertical-align: top;
+	height: 100%;
+}
+
+input.k-textbox, textarea.k-textbox, span.k-textbox.long, .k-widget .k-dropdown-wrap, span.k-numerictextbox, .k-widget .k-picker-wrap  {float: none; display: inline-block;}
+td .k-widget.k-datepicker, td .k-widget.k-combobox, td .k-widget.k-dropdown, td .k-widget.k-datepicker, .k-widget .k-dropdown-wrap,.k-widget .k-combobox, .k-widget .k-picker-wrap, .k-textbox.wide, select.wide, .k-widget.k-dropdown.wide   { width: 100% ; }
+.k-list li, input.k-textbox, textarea.k-textbox, .k-widget .k-dropdown-wrap, span.k-numerictextbox, .k-widget .k-picker-wrap, .k-window-titlebar .k-state-hover, .k-numeric-wrap .k-input, .k-picker-wrap .k-input, .k-numeric-wrap.k-state-default , .k-window-titlebar .k-window-actions, .k-numeric-wrap .k-input:hover, .k-numeric-wrap.k-state-default:hover, .k-window-actions:hover  {
+	box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-icab-box-sizing: border-box;
+	-khtml-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+textarea.k-textbox {
+	padding: 7px;
+	line-height: 1.3em;
+	font-size: 14px
+}
+
+.k-picker-wrap .k-select, .k-numeric-wrap .k-select, .k-dropdown-wrap .k-select,.k-picker-wrap .k-select, .k-window-titlebar .k-window-actions {height: 100%;}
+
+.k-ct-popup.k-group {
+	padding: 5px;
+	border: 1px solid inherit;
+}
+
+div.k-window-content {height: auto;}
+.k-widget.k-window {background: #ffffff;}
+.k-window-titlebar  {background: #cccccc}
+.k-window-titlebar .k-window-actions { right: 0 }
+span.k-textbox.long, .k-animation-container .k-list li.k-item::after, .k-listview:after  { display: block; }
+.k-animation-container .k-list li, .k-animation-container .k-list li.k-item::after, .k-listview:after  {clear: both;}
+.k-widget.k-editor { font-size: 1.3rem; }
+td .k-textbox {padding-left: 0;}
+.k-icon, .k-animation-container .k-list li { cursor: pointer}
+.k-editor-dialog ol {padding-top: 0}
+.k-editor-dialog li {margin-bottom: 5px; }
+.k-loading-mask, .k-loading-image, .k-loading-color, .k-loading-text {z-index: 100}
+.k-loading-mask {opacity: .8}
+.k-calendar th, .k-calendar td { text-align: center; border-color: inherit;}
+.k-popup.k-state-border-up.k-calendar-container { border-top-width: 0;}
+.k-popup.k-state-border-down.k-calendar-container { border-bottom-width: 0; top: 1px; }
