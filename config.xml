@@ -11,7 +11,6 @@
 
     <description>The Hardest game you will ever play.</description>
 
-
     <author href="http://radolo.com" email="info@radolo.com">
         Radolo LLC
     </author>
@@ -32,7 +31,7 @@
     <preference name="show-splash-screen-spinner" value="true"/>
     <preference name="auto-hide-splash-screen" value="true"/>
     <preference name="disable-cursor" value="false"/>
-    <preference name="android-minSdkVersion" value="17"/>
+    <preference name="android-minSdkVersion" value="14"/>
     <preference name="android-targetSdkVersion" value="21"/>
     <preference name="android-installLocation" value="auto"/>
 
@@ -85,7 +84,7 @@
     <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
 
     <gap:config-file platform="android" parent="/manifest">
-<!--        <application android:theme="@android:style/Theme.Light"/>-->
+        <application android:theme="android:style/Theme.Material.Light"/>
     </gap:config-file>
    
     <access origin="*" />
