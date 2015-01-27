@@ -1,7 +1,6 @@
 <widget 
     xmlns="http://www.w3.org/ns/widgets" 
     xmlns:gap="http://phonegap.com/ns/1.0"
-    xmlns:android = "http://schemas.android.com/apk/res/android"
     id="com.radolo.pushnotifications" version="1.0.0">
 
   <name>Penis Game</name>
@@ -78,7 +77,5 @@
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
 
   <access origin="*" />
-    <gap:config-file platform="android" parent="/manifest">
-        <application android:theme="@style/Theme.Material.Light">
-    </gap:config-file>
+    
 </widget>
