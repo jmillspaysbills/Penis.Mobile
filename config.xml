@@ -1,4 +1,4 @@
-
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 
 <widget xmlns="http://www.w3.org/ns/widgets" 
         xmlns:gap="http://phonegap.com/ns/1.0"
@@ -86,5 +86,5 @@
     <access origin="*" />
 </widget>
 <gap:config-file platform="android" parent="/manifest">
-    <application android:theme="@style/Theme.Material.Light">
-</gap:config-file>
+    <application android:theme="@android:style//Theme.Material.Light">
+        </gap:config-file>
