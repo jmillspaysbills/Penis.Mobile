@@ -2,7 +2,6 @@
 
 <widget xmlns="http://www.w3.org/ns/widgets" 
         xmlns:gap="http://phonegap.com/ns/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.radolo.pushnotifications" 
         version="1.0"
         versionCode="345" >
@@ -83,9 +82,6 @@
     <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
     <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
 
-    <gap:config-file platform="android" parent="/manifest">
-        <application android:theme="@android:style//Theme.Material.Light">
-    </gap:config-file>
    
     <access origin="*" />
     
